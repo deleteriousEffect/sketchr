@@ -10,8 +10,11 @@ $(document).ready(function() {
     var i;
         gridCollumns (size);
         for (i = 0; i <= size; i += 1) {
-            $('.collumn').append('<div></div>');
+            $('.collumn').append('<div class="grid-unit"></div>');
         }
     }
-    gridCreate(16);
+    $('.sketchpad').on('mouseenter', '.grid-unit', function() {
+        $(this).addClass('sketched');
+    });
+    gridCreate(100);
 });
