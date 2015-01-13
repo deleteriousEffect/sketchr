@@ -48,17 +48,18 @@ $(document).ready(function() {
     $('main').on('click', 'button', function() {
         function resizePrompt() {
             gridSize = window.prompt('How large to you want the grid to be?\n (1-50)');
+            var gridSizeInt = parseInt(gridSize, 10);
         if (gridSize === null) {
             console.log('Exit clear/resize dialog');
-        } else if (gridSize > 50) {
-            gridSize = window.alert('That\'s to big! Enter a number between 1-50 please!');
+        } else if (gridSizeInt > 50) {
+            gridSizeInt = window.alert('That\'s to big! Enter a number between 1-50 please!');
             resizePrompt();
-        } else if (isNaN(parseInt(gridSize, 10)) || gridSize < 1) {
-            gridSize = window.alert('That does not make sense! Enter a number between 1-50 please!');
+        } else if (isNaN(gridSizeInt) || gridSizeInt < 1) {
+            gridSizeInt = window.alert('That does not make sense! Enter a number between 1-50 please!');
             resizePrompt();
         } else {
             gridDestory();
-            gridCreate(gridSize);
+            gridCreate(gridSizeInt);
         }
     }
         sketchpad.find('.grid-unit').removeClass('sketched');
