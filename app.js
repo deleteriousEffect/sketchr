@@ -1,7 +1,7 @@
 /*jslint browser: true*/ /*global  $*/
 $(document).ready(function() {
     var sketchpad = $('.sketchpad'),
-        gridSize = 49;
+        gridSize = 50;
 
     function gridRows (rows) {
     var i;
@@ -47,12 +47,12 @@ $(document).ready(function() {
     });
     $('main').on('click', 'button', function() {
         function resizePrompt() {
-            gridSize = window.prompt('How large to you want the grid to be?\n (1-49)');
-        if (gridSize > 49) {
-            gridSize = window.alert('That\'s to big! Enter a number between 1-49 please!');
+            gridSize = window.prompt('How large to you want the grid to be?\n (1-50)');
+        if (gridSize > 50) {
+            gridSize = window.alert('That\'s to big! Enter a number between 1-50 please!');
             resizePrompt();
         } if (gridSize < 1) {
-            gridSize = window.alert('That does not make sense! Enter a number between 1-49 please!');
+            gridSize = window.alert('That does not make sense! Enter a number between 1-50 please!');
             resizePrompt();
         } if (gridSize === null) {
             console.log('Exit clear/resize dialog');
