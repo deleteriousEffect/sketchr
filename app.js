@@ -19,7 +19,7 @@ $(document).ready(function() {
     function randomRgb () {
         return Math.floor(Math.random() * 256);
     }
-    gridCreate(100);
+    gridCreate(50);
     $('.sketchpad').on('mouseenter', '.grid-unit', function() {
         var currentRbgString = '',
             rgbArr = [],
