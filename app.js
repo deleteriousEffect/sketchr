@@ -53,7 +53,7 @@ $(document).ready(function() {
         } else if (gridSize > 50) {
             gridSize = window.alert('That\'s to big! Enter a number between 1-50 please!');
             resizePrompt();
-        } else if (gridSize < 1) {
+        } else if (isNaN(parseInt(gridSize, 10)) || gridSize < 1) {
             gridSize = window.alert('That does not make sense! Enter a number between 1-50 please!');
             resizePrompt();
         } else {
