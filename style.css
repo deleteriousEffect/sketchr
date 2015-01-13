@@ -8,8 +8,7 @@ button {
 .grid-unit {
   background-color: #666;
   height: 5px;
-  width: 5px;
-  margin: 1px; }
+  width: 5px; }
 
 .sketched {
   background-color: #000; }
