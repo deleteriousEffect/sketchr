@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     function gridRows (rows) {
     var i;
-        for (i = 0; i <= rows; i += 1) {
+        for (i = 0; i < rows; i += 1) {
             sketchpad.append('<div class="row"></div>');
         }
     }
@@ -13,7 +13,7 @@ $(document).ready(function() {
     function gridCreate (size) {
     var i;
         gridRows (size);
-        for (i = 0; i <= size; i += 1) {
+        for (i = 0; i < size; i += 1) {
             $('.row').append('<div class="grid-unit"></div>');
         }
     }
