@@ -16,9 +16,13 @@ $(document).ready(function() {
     function gridDestory () {
         $('.row, .grid-unit').remove();
     }
+    function randomRgb () {
+        return Math.floor(Math.random() * 256);
+    }
     gridCreate(100);
     $('.sketchpad').on('mouseenter', '.grid-unit', function() {
         $(this).addClass('sketched');
+        $(this).css("background-color", "rgb(" + randomRgb() + "," + randomRgb() + "," + randomRgb() + ")");
     });
     $('.sketchpad').on('click', 'button', function() {
         $('.sketchpad').find('.grid-unit').removeClass('sketched');
