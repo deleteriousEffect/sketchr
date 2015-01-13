@@ -1,11 +1,15 @@
-.sketchpad div {
-  height: 5px;
-  width: 5px;
-  float: left;
-  margin: 1px; }
+.row {
+  float: left; }
+
+button {
+  display: block;
+  margin-bottom: 20px; }
 
 .grid-unit {
-  background-color: #666; }
+  background-color: #666;
+  height: 5px;
+  width: 5px;
+  margin: 1px; }
 
 .sketched {
   background-color: #000; }
