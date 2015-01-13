@@ -13,8 +13,17 @@ $(document).ready(function() {
             $('.row').append('<div class="grid-unit"></div>');
         }
     }
+    function gridDestory () {
+        $('.row, .grid-unit').remove();
+    }
+    gridCreate(100);
     $('.sketchpad').on('mouseenter', '.grid-unit', function() {
         $(this).addClass('sketched');
     });
-    gridCreate(100);
+    $('.sketchpad').on('click', 'button', function() {
+        $('.sketchpad').find('.grid-unit').removeClass('sketched');
+        var userSize = window.prompt("How large to you want the grid to be?");
+        gridDestory();
+        gridCreate(userSize);
+    });
 });
