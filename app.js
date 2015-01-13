@@ -46,9 +46,22 @@ $(document).ready(function() {
         }
     });
     $('main').on('click', 'button', function() {
+        function resizePrompt() {
+            gridSize = window.prompt('How large to you want the grid to be?\n (1-49)');
+        if (gridSize > 49) {
+            gridSize = window.alert('That\'s to big! Enter a number between 1-49 please!');
+            resizePrompt();
+        } if (gridSize < 1) {
+            gridSize = window.alert('That does not make sense! Enter a number between 1-49 please!');
+            resizePrompt();
+        } if (gridSize === null) {
+            console.log('Exit clear/resize dialog');
+        } else {
+            gridDestory();
+            gridCreate(gridSize);
+        }
+    }
         sketchpad.find('.grid-unit').removeClass('sketched');
-        gridSize = window.prompt('How large to you want the grid to be?\n (1-49)');
-        gridDestory();
-        gridCreate(gridSize);
+        resizePrompt();
     });
 });
