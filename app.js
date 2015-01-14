@@ -84,7 +84,6 @@ $(document).ready(function () {
                 gridCreate(gridSizeInt);
             }
         }
-        sketchpad.find('.grid-unit').removeClass('sketched');
         resizePrompt();
     });
 });
