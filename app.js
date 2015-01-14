@@ -9,7 +9,7 @@ $(document).ready(function () {
     function gridRows(size) {
         var i;
         for (i = 0; i < size; i += 1) {
-            sketchpad.append('<div class="row"></div>');
+            sketchpad.append('<div class="collumn"></div>');
         }
     }
 
@@ -18,13 +18,13 @@ $(document).ready(function () {
         var i;
         gridRows(size);
         for (i = 0; i < size; i += 1) {
-            $('.row').append('<div class="grid-unit"></div>');
+            $('.collumn').append('<div class="grid-unit"></div>');
         }
     }
 
 //removes the collumns and grid-units from DOM
     function gridDestory() {
-        $('.row, .grid-unit').remove();
+        $('.collumn, .grid-unit').remove();
     }
 
 //generates a number between 0 and 255 to use as a rgb value
