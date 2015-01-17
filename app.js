@@ -8,9 +8,9 @@
 $(document).ready(function () {
     'use strict';
     var sketchpad = $('.sketchpad'), //container div for the play area
-        gridSize = 50; //number of rows and collumns for the gridCreate function
+        gridSize = 50; //initial number of rows and collumns of grid units
 //-------------------------------------------------------------------
-//populates sketchpad with grid-units and container collumns
+//populates sketchpad with grid-units
 //-------------------------------------------------------------------
     function gridCreate(size) {
 
@@ -30,10 +30,10 @@ $(document).ready(function () {
     }
 
 //-------------------------------------------------------------------
-//removes the collumns and grid-units from DOM
+//removes grid-units from DOM
 //-------------------------------------------------------------------
     function gridDestroy() {
-        $('.collumn, .grid-unit').remove();
+        $('.grid-unit').remove();
     }
 
 //-------------------------------------------------------------------
