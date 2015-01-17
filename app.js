@@ -16,25 +16,16 @@ $(document).ready(function () {
 
         var sketchpadSize = $(window).height() * 0.8, //80% of viewport size
             i,
-            j,
-        //get width of the play area
-            context = sketchpad.width(),
-        //size of the play area divided by the number of grid units
-            target = context / size,
-        //maximum percent of play area each grid unit can take up without overflowing
-            relativeSize = (target / context) * 100;
+            totalGridUnits = size * size,
+            context = sketchpad.width(), //get width of the play area
+            target = context / size, //size of the play area divided by the number of grid units
+            relativeSize = (target / context) * 100; //maximum percent of play area each grid unit can take up without overflowing
 
     //reset play area size in case user has resized screen
         sketchpad.height(sketchpadSize).width(sketchpadSize);
-        console.log(context);
-        console.log(target);
-        console.log(relativeSize);
 
-        for (i = 0; i < size; i += 1) {
-            sketchpad.append('<div class="collumn" style="width:' + relativeSize + '% "></div>');
-        }
-        for (j = 0; j < size; j += 1) {
-            $('.collumn').append('<div class="grid-unit" style="height:' + relativeSize + '% "></div>');
+        for (i = 0; i < totalGridUnits; i += 1) {
+            sketchpad.append('<div class="grid-unit" style="width:' + relativeSize + '%; height: ' + relativeSize + '% "></div>');
         }
     }
 
