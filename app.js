@@ -34,9 +34,7 @@ $(document).ready(function () {
     sketchpad.on('mouseenter', '.grid-unit', function () {
         var currentRbgString = '',
             rgbArr = [],
-            darkerRed = '',
-            darkerBlue = '',
-            darkerGreen = '';
+            darkenedRgbArr = [];
 
     //generates a number between 0 and 255 to use as a rgb value
         function randomRgb() {
@@ -56,12 +54,11 @@ $(document).ready(function () {
         //strip the rgb numbers from the and push them on to an array
             rgbArr = currentRbgString.match(/\d+/g, '');
         //darken the rgb values, 25.5 is 10% of the max rgb value of 255
-            //TODO: use array.map here
-            darkerRed = parseInt(rgbArr[0] - 25.5, 10);
-            darkerBlue = parseInt(rgbArr[1] - 25.5, 10);
-            darkerGreen = parseInt(rgbArr[2] - 25.5, 10);
-        //write over the previous css background with the darker color
-            $(this).css('background-color', 'rgb(' + darkerRed + ',' + darkerBlue + ',' + darkerGreen + ')');
+            darkenedRgbArr = rgbArr.map(function (rgb) {
+                return parseInt(rgb - 25.5, 10);
+            });
+        //write over the previous css background with the darker colors
+            $(this).css('background-color', 'rgb(' + darkenedRgbArr.join(',') + ')');
         }
     });
 
