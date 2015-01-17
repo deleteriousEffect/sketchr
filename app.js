@@ -74,15 +74,15 @@ $(document).ready(function () {
 //clears sketchpad and creatues a new one with a user-defined size
 //-------------------------------------------------------------------
     $('main').on('click', 'button', function () {
-    //prompts the user to for a new size, calls itself if it receives bad input
+    //prompts the user for a new size, calls itself if it receives bad input
         function resizePrompt() {
-            gridSize = window.prompt('How large to you want the grid to be?\n (1-50)');
+            gridSize = window.prompt('How large do you want the grid to be?\n (1-50)');
             var gridSizeInt = parseInt(gridSize, 10);
         //allows user to cancel and keep current sketchpad uncleared
             if (gridSize === null) {
                 console.log('Exit clear/resize dialog');
             } else if (gridSizeInt > 50) {
-                gridSizeInt = window.alert('That\'s to big! Enter a number between 1-50 please!');
+                gridSizeInt = window.alert('That\'s too big! Enter a number between 1-50 please!');
                 resizePrompt();
             } else if (isNaN(gridSizeInt) || gridSizeInt < 1) {
                 gridSizeInt = window.alert('That does not make sense! Enter a number between 1-50 please!');
