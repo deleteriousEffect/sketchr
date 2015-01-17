@@ -8,18 +8,29 @@
 $(document).ready(function () {
     'use strict';
     var sketchpad = $('.sketchpad'), //container div for the play area
-        gridSize = 50; //number of rows and collumns for the gridCreate function
+        gridSize = 50, //number of rows and collumns for the gridCreate function
+        sketchpadSize = $(window).height() * 0.8; //80% of viewport size
 
 //populates sketchpad with grid-units and container collumns
     function gridCreate(size) {
         var i,
-            j;
+            j,
+        //get width of the play area
+            context = sketchpad.width(),
+        //size of the play area divided by the number of grid units
+            target = context / size,
+        //maximum percent of play area each grid unit can take up without overflowing
+            relativeSize = (target / context) * 100;
+
+        console.log(context);
+        console.log(target);
+        console.log(relativeSize);
 
         for (i = 0; i < size; i += 1) {
-            sketchpad.append('<div class="collumn"></div>');
+            sketchpad.append('<div class="collumn" style="width:' + relativeSize + '% "></div>');
         }
         for (j = 0; j < size; j += 1) {
-            $('.collumn').append('<div class="grid-unit"></div>');
+            $('.collumn').append('<div class="grid-unit" style="height:' + relativeSize + '% "></div>');
         }
     }
 
@@ -27,8 +38,6 @@ $(document).ready(function () {
     function gridDestroy() {
         $('.collumn, .grid-unit').remove();
     }
-
-    gridCreate(gridSize); //initialize 50x50 grid
 
 //event hander for mouseenter events on grid-units
     sketchpad.on('mouseenter', '.grid-unit', function () {
@@ -86,4 +95,12 @@ $(document).ready(function () {
         }
         resizePrompt();
     });
+//-------------------------------------------------------------------
+//Set sketchpad height and width to 80% of viewport
+//and initialize the play area
+//-------------------------------------------------------------------
+    sketchpad.height(sketchpadSize)
+        .width(sketchpadSize);
+
+    gridCreate(gridSize); //initialize 50x50 grid
 });
