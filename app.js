@@ -1,5 +1,11 @@
 /*jslint browser: true*/
 /*global  $*/
+
+/* Generates play area with grid-unit divs that change to a random background color
+ * on mouseenter. After initial mouseenter events, the grid-units will darken until
+ * they are completely black. User can clear the play area and set a new size */
+
+
 $(document).ready(function () {
     'use strict';
     var sketchpad = $('.sketchpad'), //container div for the play area
