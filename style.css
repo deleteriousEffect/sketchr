@@ -1,5 +1,17 @@
+body {
+  font-family: Arial, sans-serif; }
+
+main {
+  text-align: center;
+  font-size: 1em; }
+
+h1 {
+  font-size: 2.5em; }
+
 .sketchpad {
+  border: 3px dashed #000;
   height: 860px;
+  margin: 20px auto;
   width: 860px; }
 
 .collumn {
@@ -9,10 +21,10 @@
 
 button {
   display: block;
-  margin-bottom: 20px; }
+  margin: 0 auto; }
 
 .grid-unit {
-  background-color: #666;
+  background-color: rgba(102, 102, 102, 0.14);
   height: 2%;
   width: 100%; }
 
