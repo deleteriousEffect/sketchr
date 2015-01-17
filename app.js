@@ -8,7 +8,7 @@
 $(document).ready(function () {
     'use strict';
     var sketchpad = $('.sketchpad'), //container div for the play area
-        gridSize = 50; //initial number of rows and collumns of grid units
+        gridSize = 25; //initial number of rows and collumns of grid units
 //-------------------------------------------------------------------
 //populates sketchpad with grid-units
 //-------------------------------------------------------------------
