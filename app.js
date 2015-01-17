@@ -8,12 +8,14 @@
 $(document).ready(function () {
     'use strict';
     var sketchpad = $('.sketchpad'), //container div for the play area
-        gridSize = 50, //number of rows and collumns for the gridCreate function
-        sketchpadSize = $(window).height() * 0.8; //80% of viewport size
-
+        gridSize = 50; //number of rows and collumns for the gridCreate function
+//-------------------------------------------------------------------
 //populates sketchpad with grid-units and container collumns
+//-------------------------------------------------------------------
     function gridCreate(size) {
-        var i,
+
+        var sketchpadSize = $(window).height() * 0.8, //80% of viewport size
+            i,
             j,
         //get width of the play area
             context = sketchpad.width(),
@@ -22,6 +24,8 @@ $(document).ready(function () {
         //maximum percent of play area each grid unit can take up without overflowing
             relativeSize = (target / context) * 100;
 
+    //reset play area size in case user has resized screen
+        sketchpad.height(sketchpadSize).width(sketchpadSize);
         console.log(context);
         console.log(target);
         console.log(relativeSize);
@@ -34,12 +38,16 @@ $(document).ready(function () {
         }
     }
 
+//-------------------------------------------------------------------
 //removes the collumns and grid-units from DOM
+//-------------------------------------------------------------------
     function gridDestroy() {
         $('.collumn, .grid-unit').remove();
     }
 
+//-------------------------------------------------------------------
 //event hander for mouseenter events on grid-units
+//-------------------------------------------------------------------
     sketchpad.on('mouseenter', '.grid-unit', function () {
         var currentRbgString = '',
             rgbArr = [],
@@ -71,7 +79,9 @@ $(document).ready(function () {
         }
     });
 
+//-------------------------------------------------------------------
 //clears sketchpad and creatues a new one with a user-defined size
+//-------------------------------------------------------------------
     $('main').on('click', 'button', function () {
     //prompts the user to for a new size, calls itself if it receives bad input
         function resizePrompt() {
@@ -95,12 +105,9 @@ $(document).ready(function () {
         }
         resizePrompt();
     });
-//-------------------------------------------------------------------
-//Set sketchpad height and width to 80% of viewport
-//and initialize the play area
-//-------------------------------------------------------------------
-    sketchpad.height(sketchpadSize)
-        .width(sketchpadSize);
 
-    gridCreate(gridSize); //initialize 50x50 grid
+//-------------------------------------------------------------------
+//Initialize the play area
+//-------------------------------------------------------------------
+    gridCreate(gridSize);
 });
