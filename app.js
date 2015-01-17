@@ -10,7 +10,7 @@ $(document).ready(function () {
     var sketchpad = $('.sketchpad'), //container div for the play area
         gridSize = 50; //number of rows and collumns for the gridCreate function
 
-//populates sketchpad with grid-units
+//populates sketchpad with grid-units and container collumns
     function gridCreate(size) {
         var i,
             j;
