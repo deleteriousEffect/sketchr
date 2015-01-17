@@ -1,4 +1,3 @@
-/*jslint browser: true*/
 /*global  $*/
 
 /* Generates play area with grid-unit divs that change to a random background color
@@ -11,31 +10,22 @@ $(document).ready(function () {
     var sketchpad = $('.sketchpad'), //container div for the play area
         gridSize = 50; //number of rows and collumns for the gridCreate function
 
-//generates collumns to hold the grid-units and attches them to the sketchpad
-    function gridRows(size) {
-        var i;
+//populates sketchpad with grid-units
+    function gridCreate(size) {
+        var i,
+            j;
+
         for (i = 0; i < size; i += 1) {
             sketchpad.append('<div class="collumn"></div>');
         }
-    }
-
-//populates sketchpad with grid-units
-    function gridCreate(size) {
-        var i;
-        gridRows(size);
-        for (i = 0; i < size; i += 1) {
+        for (j = 0; j < size; j += 1) {
             $('.collumn').append('<div class="grid-unit"></div>');
         }
     }
 
 //removes the collumns and grid-units from DOM
-    function gridDestory() {
+    function gridDestroy() {
         $('.collumn, .grid-unit').remove();
-    }
-
-//generates a number between 0 and 255 to use as a rgb value
-    function randomRgb() {
-        return Math.floor(Math.random() * 256);
     }
 
     gridCreate(gridSize); //initialize 50x50 grid
@@ -47,6 +37,12 @@ $(document).ready(function () {
             darkerRed = '',
             darkerBlue = '',
             darkerGreen = '';
+
+    //generates a number between 0 and 255 to use as a rgb value
+        function randomRgb() {
+            return Math.floor(Math.random() * 256);
+        }
+
     // if the grid-unit has not been been moused over
         if ($(this).attr('class') !== 'grid-unit sketched') {
         //add sketched class
@@ -68,6 +64,7 @@ $(document).ready(function () {
             $(this).css('background-color', 'rgb(' + darkerRed + ',' + darkerBlue + ',' + darkerGreen + ')');
         }
     });
+
 //clears sketchpad and creatues a new one with a user-defined size
     $('main').on('click', 'button', function () {
     //prompts the user to for a new size, calls itself if it receives bad input
@@ -85,7 +82,7 @@ $(document).ready(function () {
                 resizePrompt();
             } else {
             //if acceptable user input is recieved removes old grid from dom
-                gridDestory();
+                gridDestroy();
             //and creates a new one with the user-defined size
                 gridCreate(gridSizeInt);
             }
