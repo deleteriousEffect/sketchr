@@ -34,7 +34,11 @@ $(document).ready(function () {
         sketchpad.height(sketchpadSize).width(sketchpadSize);
 
         for (i = 0; i < totalGridUnits; i += 1) {
-            sketchpad.append('<div class="grid-unit" style="width:' + relativeSize + '%; height: ' + relativeSize + '% "></div>');
+            sketchpad.append('<div ' +
+                                'class="grid-unit"' +
+                                'style="width:' + relativeSize + '%;' +
+                                'height: ' + relativeSize + '%"' +
+                                    '></div>');
         }
     }
 
